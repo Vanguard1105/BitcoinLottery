@@ -1,10 +1,12 @@
 import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
+import Switcher from '@/components/ui/Switcher'
 import getCurrentFormattedTime from './GetTime'
 import { useNavigate } from 'react-router-dom';
 import DatePicker from '@/components/ui/DatePicker'
 import { createLottery, useAppDispatch } from './store'
 import { useEffect, useState } from 'react'
+import { divide } from 'lodash';
 const CreateLottery = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -18,6 +20,8 @@ const CreateLottery = () => {
   const [invalidDescription, setInvalidDescription] = useState(false)
   const [invalidTicketPrice, setInvalidTicketPrice] = useState(false)
   const [invalidTotalTicket, setInvalidTotalTicket] = useState(false)
+  const [ticketToogleIsChecked, setTicketToogleIsChecked] = useState(true)
+  const [rollOverIsChecked, setRollOverIsChecked] = useState(false)
   const create = () => {
     const lottery = {
       name: "lottery" + now,
@@ -65,15 +69,18 @@ const CreateLottery = () => {
             onChange={(e) => setTicketPrice(e.target.value)}
           />
         </div>
-        <div><span className='pl-3 pr-0.5'>Total Tickets:</span>
+        <div className='flex items-center'>
+          <span className='pl-3 pr-0.5'>Total Tickets:</span>
           <Input
             type='number'
             invalid={invalidTotalTicket}
-            placeholder="Please Enter Number Of Tickets"
-            value={totalTicket} className='w-60 my-2'
+            placeholder={ticketToogleIsChecked == true ? "Enter number of tickets" : "Not limitted"}
+            disabled={!ticketToogleIsChecked}
+            value={totalTicket} className='w-[180px] my-2'
             size='sm'
             onChange={(e) => setTotalTicket(e.target.value)}
           />
+          <Switcher defaultChecked className="h-[24px] ml-3" onChange={(checked, e) => { setTicketToogleIsChecked(checked) }} />
         </div>
         <div className='flex items-center my-2'>
           <span className='pl-3 pr-[14px]'>Start Time :</span>
@@ -110,6 +117,11 @@ const CreateLottery = () => {
             minDate={endTime ? endTime : new Date()}
             size='sm'
           />
+        </div>
+        <div className='flex items-center my-2 pl-3'>
+          <span className='pr-5'>Roll Over :</span>
+          <Switcher defaultChecked={false} className="h-[24px] ml-0.5" onChange={(checked, e) => { setRollOverIsChecked(checked) }} />
+          {rollOverIsChecked && <div className='pl-5'>Availiable: $<u>8760</u></div>}
         </div>
         <Button variant='solid' className='my-4' onClick={validate}>
           Create Lottery

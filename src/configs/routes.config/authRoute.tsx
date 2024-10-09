@@ -5,13 +5,13 @@ const authRoute: Routes = [
     {
         key: 'selectLottery',
         path: `/select-lottery`,
-        component: lazy(() => import('@/views/lottery/SelectLottery')),
+        component: lazy(() => import('@/views/Lottery/SelectLottery')),
         authority: [],
     },
     {
         key: 'createLottery',
         path: `/create-lottery/`,
-        component: lazy(() => import('@/views/lottery/CreateLottery')),
+        component: lazy(() => import('@/views/Lottery/CreateLottery')),
         authority: [],
     },
     {
