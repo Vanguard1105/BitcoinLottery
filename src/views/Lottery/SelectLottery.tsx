@@ -165,9 +165,9 @@ const Lottery = () => {
                             </div>
                             <p className='py-1'>{LotteryData.description}</p>
                             <div className='text-[12px]'><span>Start time:</span><span className='pr-5'>{LotteryData.start_time.toISOString().replace('T', ' ').slice(0, 19)}</span></div>
-                            <div><span>E n d time:</span><span>{LotteryData.buy_time.toISOString().replace('T', ' ').slice(0, 19)}</span></div>
+                            <div><span>End time :</span><span>{LotteryData.buy_time.toISOString().replace('T', ' ').slice(0, 19)}</span></div>
                             <div>
-                              <span>B u y time:</span><span>{LotteryData.end_time.toISOString().replace('T', ' ').slice(0, 19)}</span>
+                              <span>Buy time :</span><span>{LotteryData.end_time.toISOString().replace('T', ' ').slice(0, 19)}</span>
                             </div>
                           </div>
                           <div>
@@ -175,8 +175,9 @@ const Lottery = () => {
                             <span>Total Price: </span> <span>${LotteryData.sold_ticket * LotteryData.ticket_price}</span>
                           </div>
                         </div>
-                        <div className="my-1 sm:my-0 col-span-12  lg:col-span-3 md:flex md:items-center">
+                        <div className="my-1 sm:my-0 col-span-12  lg:col-span-3 md:flex md:items-center flex flex-row">
                           <ProgressionBar progression={parseFloat((LotteryData.sold_ticket * 100 / LotteryData.total_ticket).toFixed(2))} />
+                          <span className='text-[10px] pl-2'>({LotteryData.sold_ticket}/{LotteryData.total_ticket})</span>
                         </div>
                       </div>
                     </Card>
@@ -210,9 +211,9 @@ const Lottery = () => {
                             </div>
                             <p className='py-1'>{LotteryData.description}</p>
                             <div className='text-[12px]'><span>Start time:</span><span className='pr-5'>{LotteryData.start_time.toISOString().replace('T', ' ').slice(0, 19)}</span></div>
-                            <div><span>E n d time:</span><span>{LotteryData.buy_time.toISOString().replace('T', ' ').slice(0, 19)}</span></div>
+                            <div><span>End time :</span><span>{LotteryData.buy_time.toISOString().replace('T', ' ').slice(0, 19)}</span></div>
                             <div>
-                              <span>B u y time:</span><span>{LotteryData.end_time.toISOString().replace('T', ' ').slice(0, 19)}</span>
+                              <span>Buy time :</span><span>{LotteryData.end_time.toISOString().replace('T', ' ').slice(0, 19)}</span>
                             </div>
                           </div>
                           <div>
@@ -220,8 +221,9 @@ const Lottery = () => {
                             <span>Total Price: </span> <span>${LotteryData.sold_ticket * LotteryData.ticket_price}</span>
                           </div>
                         </div>
-                        <div className="my-1 sm:my-0 col-span-12  lg:col-span-3 md:flex md:items-center">
+                        <div className="my-1 sm:my-0 col-span-12  lg:col-span-3 md:flex md:items-center flex flex-row">
                           <ProgressionBar progression={parseFloat((LotteryData.sold_ticket * 100 / LotteryData.total_ticket).toFixed(2))} />
+                          <span className='text-[10px] pl-2'>({LotteryData.sold_ticket}/{LotteryData.total_ticket})</span>
                         </div>
                       </div>
                     </Card>
@@ -255,19 +257,22 @@ const Lottery = () => {
                             </div>
                             <p className='py-1'>{LotteryData.description}</p>
                             <div className='text-[12px]'><span>Start time:</span><span className='pr-5'>{LotteryData.start_time.toISOString().replace('T', ' ').slice(0, 19)}</span></div>
-                            <div><span>E n d time:</span><span>{LotteryData.buy_time.toISOString().replace('T', ' ').slice(0, 19)}</span></div>
+                            <div><span>End time :</span><span>{LotteryData.buy_time.toISOString().replace('T', ' ').slice(0, 19)}</span></div>
                             <div>
-                              <span>B u y time:</span><span>{LotteryData.end_time.toISOString().replace('T', ' ').slice(0, 19)}</span>
+                              <span>Buy time :</span><span>{LotteryData.end_time.toISOString().replace('T', ' ').slice(0, 19)}</span>
                             </div>
                           </div>
                           <div>
                             <span>Ticket Price: </span> <span className='pr-4'>${LotteryData.ticket_price}</span>
                             <span>Total Price: </span> <span>${LotteryData.sold_ticket * LotteryData.ticket_price}</span>
                           </div>
-                          <div>Winner: {LotteryData.winner}</div>
+                          <div>
+                            <span>Winner: </span> <span className='pr-4'>{LotteryData.winner}</span>
+                          </div>
                         </div>
-                        <div className="my-1 sm:my-0 col-span-12  lg:col-span-3 md:flex md:items-center">
+                        <div className="my-1 sm:my-0 col-span-12  lg:col-span-3 md:flex md:items-center flex flex-row">
                           <ProgressionBar progression={parseFloat((LotteryData.sold_ticket * 100 / LotteryData.total_ticket).toFixed(2))} />
+                          <span className='text-[10px] pl-2'>({LotteryData.sold_ticket}/{LotteryData.total_ticket})</span>
                         </div>
                       </div>
                     </Card>

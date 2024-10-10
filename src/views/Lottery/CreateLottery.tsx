@@ -121,7 +121,7 @@ const CreateLottery = () => {
         <div className='flex items-center my-2 pl-3'>
           <span className='pr-5'>Roll Over :</span>
           <Switcher defaultChecked={false} className="h-[24px] ml-0.5" onChange={(checked, e) => { setRollOverIsChecked(checked) }} />
-          {rollOverIsChecked && <div className='pl-5'>Availiable: $<u>8760</u></div>}
+          {rollOverIsChecked && <div className='pl-5'>Availiable: <b>8760</b>$</div>}
         </div>
         <Button variant='solid' className='my-4' onClick={validate}>
           Create Lottery
